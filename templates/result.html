@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .result-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        img {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .prediction-result {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 1.2em;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .prediction-result h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .prediction-result p {
+            margin: 5px 0;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .back-button:hover {
+            background-color: #007bff;
+            color: white;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Prediction Result</h1>
+        
+        <div class="prediction-result">
+            <h2>Predicted Label:</h2>
+            <p>{{ predicted_label }}</p>
+            <h2>Confidence Score:</h2>
+            <p>{{ '%.2f' % (confidence_score * 100) }}%</p>
+            <h3>Accuracy:</h3>
+            <p>{{ '%.2f' % (accuracy * 100) }}%</p>
+            <h3>Precision:</h3>
+            <p>{{ '%.2f' % (precision * 100) }}%</p>
+            <h3>Recall:</h3>
+            <p>{{ '%.2f' % (recall * 100) }}%</p>
+            <h3>F1 Score:</h3>
+            <p>{{ '%.2f' % (f1 * 100) }}%</p>
+            <h3>Specificity:</h3>
+            <p>{{ '%.2f' % (specificity * 100) }}%</p>
+            <h3>Sensitivity:</h3>
+            <p>{{ '%.2f' % (sensitivity * 100) }}%</p>
+        </div>
+        <a class="back-button" href="{{ url_for('home') }}">
+            <i class="fas fa-arrow-left"></i> Upload Another Image
+        </a>
+    </div>
+</body>
+</html>

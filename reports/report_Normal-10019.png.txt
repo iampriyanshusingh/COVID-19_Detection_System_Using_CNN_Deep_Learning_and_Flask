@@ -1,0 +1,8 @@
+Predicted Label: Normal
+Confidence Score: 100.00%
+Accuracy: 0.75
+Precision: 0.83
+Recall: 0.75
+F1 Score: 0.73
+Specificity: 0.50
+Sensitivity: 1.00
